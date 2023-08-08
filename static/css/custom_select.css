@@ -1,0 +1,41 @@
+/*Styling for the CustomSelect component*/
+
+.select-button {
+    cursor: pointer;
+    width: auto;
+    height: fit-content;
+    background-color: rgb(112, 0, 0);
+    color: rgb(226, 197, 117);
+    border-radius: 10%;
+    box-shadow: 0 1px 2px rgb(107, 3, 3), inset 0 1px 2px white;
+}
+
+.dropdown-list {
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    pointer-events: none;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+    list-style-type: none;
+    text-align: left;
+    background-color: rgb(226, 197, 117, 0.7);
+    color: rgb(112, 0, 0);
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+}
+
+.select-option:hover {
+    background-color: rgb(255, 188, 3, 0.4);
+}
+
+.select-button-pressed {
+    box-shadow: 0 0.5px 1px rgb(107, 3, 3), inset 0 0.5px 2px white;
+}
+
+.show-dropdown-list {
+    visibility: visible;
+    pointer-events: auto;
+}

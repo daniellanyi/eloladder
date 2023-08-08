@@ -1,0 +1,54 @@
+<!-- ==============================================
+   Template Name: update.html
+   Purpose: It provides a way for a tournament admin to manually record the result of a series
+   of matches in a structured convenient manner.
+   Description: This page doesn't rely on DTL but uses JavaScript to dynamically render elements and update
+   content on the client side. The initial template contains markup for components that aren't rendered in JavaScript
+   and markup structure for the dynamically rendered components. The components rendered on the client side
+   include 2 search boxes from search_box.js and custom select elements for a dynamically generated form from
+   custom_select.js.
+   ============================================== -->
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/search_box.css' %}">
+    <link rel="stylesheet" href="{% static 'css/update_page.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom_select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/game_number.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <div id='matchup-form-wrapper'>
+        <h2 id='update-page-title'>Record a match</h2>
+        <div id='game-number'>
+            <p id="gn-title">Number of games played:</p>
+            <div id="select-game-number">
+                <div id="number-field">
+                    <span id="numberDisplay">1</span>
+                    <div id="button-container">
+                        <button id="incrementButton">+</button>
+                        <button id="decrementButton">-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='bottom-row'>
+            <div id='select-winners'>
+                <div id='winner-dropdowns'>
+                    <ul id='winner-list'></ul>
+                </div>
+            </div>
+            <div id="form-navigation">
+                <button id='next-button' disabled>Next</button>
+                <button id='back-button' disabled>Back</button>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/search_box.js' %}"></script>
+    <script src="{% static 'js/custom_select.js' %}"></script>
+    <script src="{% static 'js/update_page.js' %}"></script>
+{% endblock %}

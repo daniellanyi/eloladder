@@ -1,0 +1,110 @@
+/*Styling for the update_page template. The components/sections have been arrayed on the page using CSS grid.
+*/
+
+:root {
+    --number-group-width: 170px;
+    --nav-button-width: 58px;
+}
+
+/*Acts as the grid container for the whole page*/
+#matchup-form-wrapper {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    height: 600px;
+    width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-areas:
+        ". upt upt upt ."
+        " . sb1 sng sb2 ."
+        " fn fn fn fn fn"
+    ;
+    grid-template-rows: 0.3fr 2fr 12fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    box-shadow: 1px 1px 10px rgb(112, 0, 0);
+    color: rgb(112, 0, 0);
+    background-color: rgb(226, 197, 117, 0.7);
+    border-radius: 3%;
+}
+
+/*----------------Title---------------------*/
+#update-page-title {
+    grid-area: upt;
+    color: rgb(112, 0, 0);
+    opacity: 1;
+    font-size: 2rem;
+    margin: -10px auto;
+}
+
+/*-----------------First row of components------------------*/
+#SearchBox-1 {
+    grid-area: sb1;
+    height: fit-content;
+    margin: 25% auto 0 auto;
+}
+
+#SearchBox-2 {
+    grid-area: sb2;
+    height: fit-content;
+    margin: 25% auto 0 auto;
+}
+
+/*Container for the game number component styled in game_number.css and its title*/
+#game-number{
+    grid-area: sng;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: var(--number-group-width);
+    height: 150px;
+    left: calc(50% - 85px);
+}
+
+/*Styling for the title of the game number component*/
+#gn-title {
+    margin: auto;
+    text-align: center;
+    font-size: x-large;
+    color: rgb(112, 0, 0);
+    align-self: center;
+}
+/*---------------End of first row---------------------*/
+
+/*-----------------Bottom row----------------------*/
+#bottom-row {
+    grid-area: fn;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*Container for the form that allows the tournament admin to select the winner of each game*/
+#select-winners {
+    margin: 0 auto;
+}
+
+/*The ul element which contains the CustomSelect component instances*/
+#winner-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 0;
+    margin: 0;
+}
+
+/*Container for the navigation buttons*/
+#form-navigation {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+/*Navigation buttons*/
+#back-button, #next-button {
+    height: fit-content;
+    font-size: large;
+    width: var(--nav-button-width);
+}

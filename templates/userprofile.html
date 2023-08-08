@@ -1,0 +1,47 @@
+<!-- ==============================================
+   Template Name: userprofile.html
+   Purpose: Display user profile details.
+   Context Variables:
+   - username: name of the user
+   - user_stats: user's statistics
+   - user_rank: rank of the user
+   - page_number: the leadeboard page the user is on
+   Description: In its current version it displays the user's statistics as a table including 
+   additional statistics and a link the leadeboard page of the user if they're on it.
+   ============================================== -->
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/user_profile.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div id='userprofile-table-wrapper'>
+    <table>
+        <tr>
+            <th>Username:</th>
+            <td>{{ username }}</td>
+            <th>Rank:</th>
+            <td>{{ user_rank }}</td>
+            {% if page_number %}
+                <td><a href="{% url 'home' %}?page={{ page_number }}">Show Leaderboard Page</a></td>
+            {% else %}
+                <td><a href="{% url 'home' %}">Show Top Segment</a></td>
+            {% endif %}
+        </tr>
+        <tr>
+            <th>ELO:</th>
+            <td>{{ user_stats.elo }}</td>
+            <th>Current Win Streak:</th>
+            <td>{{ user_stats.current_win_streak }}</td>
+            <th>Highest Win Streak:</th>
+            <td>{{ user_stats.highest_win_streak }}</td>
+        </tr>
+        
+    </table>
+</div>
+{% endblock %}

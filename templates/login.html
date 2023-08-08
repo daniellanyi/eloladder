@@ -1,0 +1,15 @@
+<!-- ==============================================
+   Template Name: login.html
+   Purpose: Enables user to login
+   ============================================== -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Login</h2>
+<form method='post' action="">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Username.. " class="form-control">
+    <input type="password" name="password" placeholder="Password.. " class="form-control">
+    <input type="submit", value="Login">
+</form>
+{% endblock %}

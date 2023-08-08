@@ -1,0 +1,95 @@
+<!-- ==============================================
+   Template Name: base.html
+   Purpose: Provide markup for global components
+   Description: Contains a navbar component in which items are divided into lists based on their context. Left side
+   is for page navigation and right side is for user related functionality. A third list can be added to the middle
+   for additional functionality. This template uses the user_in_group tag from custom_tags.py in the template_tags
+   directory.
+   ============================================== -->
+
+
+{% load static %}
+{% load custom_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'img/shogun2.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    
+    {% block head %}
+    {% endblock %}
+
+</head>
+<body>
+
+    <nav id="navbar">
+        <ul class="navbar-main-list">
+            <li class="navbar-item navbar-list-item">
+                <a class="navbar-navigation-link" href="{% url 'home' %}">
+                    <span class="homepage-link">Leaderboard</span>
+                </a>
+            </li>
+            {% if request.user|user_in_group:"tournament_admin" %}
+            <li class="navbar-item navbar-list-item">
+                <a class="navbar-navigation-link" href="{% url 'update' %}">
+                    <span class="homepage-link">Record a Match</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+        <ul class="navbar-main-list">
+            {% if request.user.is_authenticated %}
+            <li class="username-wrapper navbar-item navbar-list-item" id="dropdown-zone">
+                <a class="navbar-navigation-link" href="javascript:void(0)">
+                    <span class="username">{{ request.user.username }}</span>
+                </a>
+            </li>
+            <ul class="navbar-dropdown" id="dropdown-list">
+                <li class="navbar-dropdown-item navbar-list-item">
+                    <a class="navbar-dropdown-link" href="{% url 'logout' %}">
+                        <span id="logout-link">Logout</span>
+                    </a>
+                </li>
+                <li class="navbar-dropdown-item navbar-list-item">
+                    <a class="navbar-dropdown-link" href="{% url 'user_profile' user.id %}">
+                        <span id="stats-link">My Stats</span>
+                    </a>
+                </li>
+            </ul>
+            {% else %}
+            <li class="Username-wrapper navbar-item navbar-list-item">
+                <a class="navbar-navigation-link" href="/register">
+                    <span class="register-link">Register</span>
+                </a>
+            </li>
+            <li class="Username-wrapper navbar-item navbar-list-item">
+                <a class="navbar-navigation-link" href="/login">
+                    <span class="login-link">Login</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    
+    <main>
+        {% block content %}
+        <h1>Hello</h1>
+        {% endblock %}
+    </main>
+    <script src="{% static 'js/base.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+

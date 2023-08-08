@@ -1,0 +1,32 @@
+/*Styling for the user_profile template*/
+
+/*Flex container for the table*/
+#userprofile-table-wrapper {
+    width: 100%;
+    display: flex;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Profile data table*/
+#userprofile-table-wrapper table{
+    height: 200px;
+    box-shadow: 1px 1px 10px rgb(112, 0, 0);
+    color: rgb(112, 0, 0);
+    background-color: rgb(226, 197, 117, 0.7);
+    border-radius: 3%;
+    font-size: larger;
+    border-spacing: 50px 30px;
+}
+
+#userprofile-table-wrapper a {
+    cursor: pointer;
+    color: rgb(112, 0, 0);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#userprofile-table-wrapper a:active {
+    color: rgb(197, 2, 2);
+}

@@ -1,0 +1,51 @@
+/*Styling for the box that displays the number of games and the increment and decrement buttons*/
+
+/*This refers to the container of the box with the buttons*/
+#select-game-number {
+    display: flex;
+    align-items: center;
+    border: 1px solid #000;
+    height: 50px;
+    width: 70px;
+  }
+  
+  /*Container for the span element which displays the number*/
+  #number-field {
+    display: flex;
+    align-items: center;
+  }
+  
+  /*Span element which displays the number*/
+  #numberDisplay {
+    color: rgb(112, 0, 0);
+    background-color: rgb(226, 197, 117);
+    display: inline-block;
+    width: 50px; 
+    height: 50px; 
+    text-align: center;
+    line-height: 50px; 
+  }
+  
+/*Container for the two buttons*/
+#button-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px; 
+  }
+  
+
+#incrementButton, #decrementButton {
+    color: rgb(231, 31, 31);
+    height: 25px;
+    width: 20px;
+    border: none;
+    background-color: rgb(238, 216, 156);
+    cursor: pointer;
+}
+
+#incrementButton:hover, #decrementButton:hover {
+    background-color: rgb(226, 197, 117, 0.7);
+}
+#incrementButton:active, #decrementButton:active {
+    background-color: rgb(226, 197, 117);
+}

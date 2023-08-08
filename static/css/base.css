@@ -1,0 +1,121 @@
+/*
+* This files contains the styles for the navbar component and is used globally for navigation across the application.
+* It's placed at the top of the page and in order to stop it from overlapping with the rest of the page 
+* the html and the body have been given a padding-top of 60px.
+*/
+
+html, body {
+    padding-top: 60px;
+    margin: 0;
+    width: 100%;
+  }
+
+
+/*The nav element functions as a flec container for navigation lists that group related items*/
+#navbar {
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(14, 11, 1);
+    color:rgb(201, 37, 8);
+    font-size: 18px;
+}
+
+/*Common styles for navigation lists*/
+.navbar-main-list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    float: right;
+}
+
+/*Common styles for individual list items within the navigatio list*/
+.navbar-list-item {
+    max-height: 1em;
+    padding: 1em 1.5em;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+/*The navbar-items are items on the nav element*/
+/*Separator between items on the navbar*/
+.navbar-item:not(:last-of-type):not(:last-of-type) {
+    border-right: 2px solid white;
+}
+
+.navbar-item {
+    padding: 1em 0em;
+    margin: 0;
+}
+
+/*The navbar-list-items are all list items that are part of the navbar component but 
+aren't necessarily on the nav element*/
+.navbar-list-item:hover, .navbar-list-item:focus {
+    background-color: rgb(240, 226, 147);
+    opacity: .8;
+    transition: background-color 250ms linear;
+}
+
+.navbar-list-item:active {
+    transition: none;
+    background-color: rgb(233, 245, 188);
+}
+
+/*The navbar-navigation-link class refers to links that aren't part of a dropdown menu*/
+.navbar-navigation-link {
+    padding: 1em 1.5em;
+    color: inherit;
+    text-decoration: none;
+}
+
+/*The navbar-navigation-link class refers to links that are part of a dropdown menu*/
+.navbar-dropdown-link {
+    padding: 1em 1.5em;
+    color: inherit;
+    text-decoration: none;
+}
+
+/*The navbar-dropdown class refers to all dropdown lists*/
+.navbar-dropdown {
+    display: none;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    position: absolute;
+    top: 55px;
+    right: 0px;
+}
+
+/*The navbar-dropdown-item class refers to li elements in a dropdown list*/
+.navbar-dropdown-item {
+    color: black;
+    background-color: blanchedalmond;
+    padding: 1em 0em;   
+}
+
+.navbar-dropdown-item:hover, .navbar-dropdown-item:focus {
+    background-color: rgb(231, 191, 130);
+    opacity: 1;
+}
+
+.navbar-dropdown-item:active {
+    background-color: rgb(192, 156, 102);
+}
+
+
+/*The show-navbar-dropdown and keep-active classes are for dynamic styling for the dropdown lists
+based on user interaction*/
+.show-navbar-dropdown {
+    display: block;
+}
+
+.keep-active {
+    background-color: rgb(240, 226, 147);
+    opacity: .8;
+    transition: background-color 250ms linear;
+}

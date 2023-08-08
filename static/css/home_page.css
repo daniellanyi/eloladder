@@ -1,0 +1,107 @@
+/*Styling for the home_page template. The components/sections have been arrayed on the page using CSS grid.
+*/
+
+:root {
+    ---table-wrapper-height: 720px;
+}
+
+/*Acts as the grid container for the page*/
+#leaderboard-container{
+    background-color: rgb(226, 197, 117, 0.6);
+    box-shadow: inset 16px -16px 15px rgb(255, 188, 3, 0.6);
+    width: 1400px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 1%;
+    margin: -20px auto;
+    display: grid;
+    grid-template-areas:
+        '. lt lt .'
+        '. game-mode game .'
+        '. tb tb ss'
+    ;
+    grid-template-columns: 2fr 2fr 2fr min(2fr);
+    row-gap: 20px;
+}
+
+
+/*------------------------Primary title----------------------------*/
+#leaderboard-title {
+    color: rgb(112, 0, 0);
+    opacity: 1;
+    font-size: 2rem;
+    margin: -10px auto;
+    grid-area: lt;
+}
+
+/*----------------Secondary titles----------------------*/
+#game {
+    color: rgb(112, 0, 0);
+    margin: auto;
+    grid-area: game;
+}
+ 
+#game-mode{
+    color: rgb(112, 0, 0);
+    margin: auto;
+    grid-area: game-mode;
+}
+
+
+/*------------------Leaderboard table section-------------------------*/
+#leaderboard-table-wrapper {
+    grid-area: tb;
+    margin: auto;
+    height: var(--table-wrapper-height);
+}
+
+#leaderboard-table-wrapper table{
+    color: rgb(226, 197, 117);
+    background-color: rgba(161, 16, 16, 0.7);
+    border-spacing: 10px;
+    border-radius: 1%;
+    font-size: 1.3em;
+    opacity: 1;
+    width: 1000px;
+    left: 0;
+}
+
+#leaderboard-table-wrapper tr {
+    border: 0;
+    border-radius: 3%;
+}
+
+#leaderboard-table-wrapper tr:nth-child(n+1) {
+    box-shadow: 0 1px 10px rgb(255, 188, 3);
+}
+
+#leaderboard-table-wrapper th {
+    text-align: left;
+}
+
+#leaderboard-container a {
+    font-size: 1.3rem;
+    color: rgb(112, 0, 0);
+}
+
+#leaderboard-container a:active {
+    color: rgb(175, 5, 5);
+}
+
+/*-----------------Search section---------------------*/
+#search-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0px auto;
+    z-index: 5;
+    grid-area: ss;
+    height: var(---table-wrapper-height);
+}
+
+#page-number {
+    height: 0;
+    align-self: flex-end;
+    font-size: xx-large;
+    color: rgb(112, 0, 0);
+}

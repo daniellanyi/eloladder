@@ -1,0 +1,63 @@
+<!-- ==============================================
+   Template Name: home.html
+   Purpose: Display leaderboard
+   Context Variables:
+   - page: Contains the data field values for the leadeboard
+   - page_number: Leaderboard page used in pagination 
+   - num_pages: Number that denotes how many pages the user can navigate
+   - has_next: Boolean that determines whether to display the Next button based on if there's a next page
+   - had_previous: Boolean that determines whether to display the Back button based on if there's a previous page
+   Description: It displays the leaderboard data in the form of a table and allows the user to navigate it via a
+   Next and a back Button. It also provides strcutre for the styling and components rendered on the client side.
+   The components rendered on the client side include a search box from search_box.js.
+   ============================================== -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/home_page.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search_box.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id='leaderboard-container'>
+    <h2 id='leaderboard-title'>Tournament Leadeboard</h2>
+    <h2 id='game-mode'>1 on 1 Land Battles</h2>
+    <h2 id='game'>Fall of the Samurai</h2>
+    <div id="search-section">
+        <p id='page-number'>{{ page_number }}/{{ num_pages }}</p>
+    </div>
+    <div class="data-table" id="leaderboard-table-wrapper">
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Wins/Losses</th>
+                <th>Win Ratio &#40;%&#41;</th>
+                <th>Win Streak</th>
+                <th>ELO</th>
+            </tr>
+            {% for data in page %}
+                <tr>
+                    <td class="Data-Field">{{ data.7 }}</td>
+                    <td class="Data-Field">{{ data.1 }}</td>
+                    <td class="Data-Field">{{ data.2 }}/{{ data.3 }}</td>
+                    <td class="Data-Field">{{ data.4 }}</td>
+                    <td class="Data-Field">{{ data.5 }}</td>
+                    <td class="Data-Field">{{ data.6 }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        {% if has_previous %}
+            <a href="?page={{ page.previous_page_number }}">Back</a>
+        {% endif %}
+
+        {% if has_next %}
+        <a href="?page={{ page.next_page_number }}">Next</a>
+        {% endif %}
+    </div>
+</div>
+<script src="{% static 'js/search_box.js' %}"></script>
+<script src="{% static 'js/home_page.js' %}"></script>
+{% endblock %}

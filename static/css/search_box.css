@@ -1,0 +1,139 @@
+/*Styling for the SearchBox component*/
+
+:root {
+    --searchbox-height: 20px;
+    --searchbox-padding: 10px;
+    --page-size: 10;
+    --searchbox-wrapper-height: 540px;
+    --list-box-gap: 8px;
+}
+
+/*Component container*/
+.searchbox-wrapper {
+    position: relative;
+    width: 300px;
+    height: var(--searchbox-wrapper-height);
+}
+
+/*This is the container for the typeahead part of the component which includes am optional label,
+* a span element for a clear button and an input element.
+*/
+.searchbox-inner{
+    /*--searchbox-inner-height: 81px;  /*xx-large label fontsize*/
+    --searchbox-inner-height: 72px;  /*x-large label fontsize*/
+    /*--searchbox-inner-height: 66px;  /*larger label fontsize*/
+    /*--searchbox-inner-height: 65px;  /*large label fontsize*/
+    /*--searchbox-inner-height: 62px;  /*medium label fontsize*/
+    height: var(--searchbox-inner-height);
+    position: relative;
+    padding-right: 24px;
+}
+
+.searchbox-inner label {
+    color: rgb(112, 0, 0);
+    font-size: x-large;
+}
+
+/*This class is added if no label was specified. It ensures the correct positioning of the clear button*/
+.no-label {
+    --searchbox-inner-height: 44px;
+}
+
+  
+/*Styling for the input element*/
+.typeahead {
+    width: 100%;
+    height: var(--searchbox-height);
+    padding: var(--searchbox-padding);
+    border-radius: 8px;
+    border: 2px solid grey;
+    font-size: 18px;
+    outline: none;
+}
+
+/*Styling for the span element*/
+.clear-btn {
+    color: rgb(128, 128, 128, 0.7);
+    display: none;
+    position: absolute;
+    top: calc(var(--searchbox-inner-height) - (var(--searchbox-height) + var(--searchbox-padding)));
+    right: 10%;
+    cursor: pointer;
+  }
+  
+  .clear-btn:hover {
+    color: blue;
+  }
+  
+/*Styling for ul element which contains the list of matches sent from the server*/
+.matches-list {
+    width: 100%;
+    padding: 0;
+    border-radius: 8px;
+    margin-top: var(--list-box-gap);
+    margin-bottom: 0;
+    box-shadow: 0 5px 10px rgb(107, 3, 3);
+    list-style-type: none;
+    max-height: calc(var(--page-size) * (var(--searchbox-height) + 2 * var(--searchbox-padding)) - 10px);
+    overflow: auto;
+}
+
+.searchbox-wrapper .matches-list {
+    flex-direction: column;
+}
+
+/*The searchbox-match-item class refers to list items in the list of returned matches*/
+.searchbox-match-item {
+    width: inherit;
+    height: calc(var(--searchbox-height) + 2 * var(--searchbox-padding));
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.searchbox-match-item:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.searchbox-match-item:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.searchbox-match-item:not(.selected):nth-child(even) {
+    color: rgb(226, 197, 117);
+    background-color: rgb(231, 31, 31);
+}
+
+.searchbox-match-item:not(.selected):nth-child(odd) {
+    color:rgb(231, 31, 31);
+    background-color: rgb(238, 216, 156);
+}
+
+.searchbox-match-item.selected {
+    opacity: .7;
+    transition: background-color 250ms linear;
+}
+
+.searchbox-match-item:nth-child(even).selected {
+    color: rgb(247, 199, 70);
+    background-color: rgb(175, 16, 16);
+}
+
+.searchbox-match-item:nth-child(odd).selected {
+    color:rgb(197, 2, 2);
+    background-color: rgb(255, 188, 3);
+}
+
+
+.hidden{
+    display: none;
+}
+
+
+
+.show {
+    display: block;
+}
